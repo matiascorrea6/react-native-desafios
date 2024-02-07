@@ -8,6 +8,7 @@ export default function App() {
       <View style={styles.navbar}>
         <Text>CARRITO</Text>
         <Image style={styles.imgCarrito} source={{uri: 'https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png'}}/>
+        {/* source={{shoeImg}} */}
       </View>
 
       <View style={styles.container}>
@@ -23,11 +24,11 @@ export default function App() {
         <Text style={styles.product}>pantalon</Text>
         <Text style={styles.product}>zapatilla</Text>
         <Text style={styles.product}>remera</Text>
+        <Text style={styles.product}>pantalon</Text>
       </View>
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   navbar: {
@@ -70,5 +71,3 @@ const styles = StyleSheet.create({
     height: 60,
   },
 })
-
-{/* <Image style={{width: 200, height: 200}} source={{shoeImg}}/> */}
