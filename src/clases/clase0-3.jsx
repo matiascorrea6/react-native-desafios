@@ -1,83 +1,46 @@
 import { useState } from 'react'; 
 import { StatusBar } from 'expo-status-bar';
-import {
-  FlatList,
-  Text,
-  View, 
-  Image, 
-  TextInput, 
-  Pressable, 
-  StyleSheet,
-  Modal,
-} from 'react-native';
+import {Text, View, Image, TextInput, Pressable, StyleSheet } from 'react-native';
 import shoeImg from './assets/nike-marron.webp';
 
-const DATA = [
-  {
-    name: "remera",
-    id:"1",
-  },
-  {
-    name: "gorra",
-    id:"2",
-  },
-  {
-    name: "pantalon",
-    id:"3",
-  },
-];
-
 export default function App() {
+  // useState y useEffect
+  //const [valor, setValor] = useState(null / 1 / {name: 'hola'})
   const [counter, setCounter] = useState(0)
-  const [imputValue, setimputValue] = useState('');
 
   const handleCounterAdd = ()=> setCounter(counter + 1)
-  const handleImputChange = (value) => setimputValue(value)
   
   return (
     <View style={styles.page}> 
       <View style={styles.carrito}>
         <Text>CARRITO</Text>
         <Image style={styles.imgCarrito} source={{uri: 'https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png'}}/>
+        {/* source={{shoeImg}} */}
       </View>
 
       <View style={styles.container}>
-        <TextInput 
-          onChangeText={handleImputChange} 
-          value={imputValue} 
-          style={styles.textImput} 
-          placeholder='ingrese un producto' 
-        />
+        <TextInput style={styles.textImput} placeholder='ingrese un producto' />
         <Pressable>
           <Text style={styles.pressable}> + </Text>
        </Pressable>
       </View>      
 
       <View style={styles.productList}>
-        <FlatList
-          data={DATA}
-          renderItem={({ item })=> (
-            <View>
-              <Text style={styles.product}>{item.name}</Text>
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-        />
+        <Text style={styles.product}>zapatilla</Text>
+        <Text style={styles.product}>remera</Text>
+        <Text style={styles.product}>pantalon</Text>
+        <Text style={styles.product}>zapatilla</Text>
+        <Text style={styles.product}>remera</Text>
+        <Text style={styles.product}>pantalon</Text>
       </View>
 
       <Pressable onPress={handleCounterAdd}>
         <Text style={styles.counter}>{counter}</Text>
-        <Text>valor del imput: {imputValue}</Text>
       </Pressable>
 
     </View>
   );
 }
-{/* {DATA.map((item)=> (
-  <View key={item.id}>
-    <Text style={styles.product}>{item.name}</Text>
-  </View>
-))} */}
 
 const styles = StyleSheet.create({
   page: {
