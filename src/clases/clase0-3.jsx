@@ -3,6 +3,26 @@ import { StatusBar } from 'expo-status-bar';
 import {Text, View, Image, TextInput, Pressable, StyleSheet } from 'react-native';
 import shoeImg from './assets/nike-marron.webp';
 
+const DATA = [
+  {
+    name: "remera",
+    id:"1",
+  },
+  {
+    name: "gorra",
+    id:"2",
+  },
+  {
+    name: "pantalon",
+    id:"3",
+  },
+];
+{/* {DATA.map((item)=> (
+  <View key={item.id}>
+    <Text style={styles.product}>{item.name}</Text>
+  </View>
+))} */}
+
 export default function App() {
   // useState y useEffect
   //const [valor, setValor] = useState(null / 1 / {name: 'hola'})

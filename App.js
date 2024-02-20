@@ -1,45 +1,45 @@
 import { useState } from 'react'; 
 import { StatusBar } from 'expo-status-bar';
-import {
-  FlatList,
-  Text,
-  View, 
-  Image, 
-  TextInput, 
-  Pressable, 
-  StyleSheet,
-  Modal,
-} from 'react-native';
+import Constants from 'expo-constants';
+import {FlatList, Text, View, Image, TextInput, Pressable, StyleSheet, Modal} from 'react-native';
 import shoeImg from './assets/nike-marron.webp';
+import RemoveModal from "./src/components/RemoveModal";
 
-const DATA = [
-  {
-    name: "remera",
-    id:"1",
-  },
-  {
-    name: "gorra",
-    id:"2",
-  },
-  {
-    name: "pantalon",
-    id:"3",
-  },
-];
 
 export default function App() {
   const [counter, setCounter] = useState(0)
   const [imputValue, setimputValue] = useState('');
+  const [cartItems, setCartItems] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false); // estado invisible hasta que se toca el boton.
+  const [itemSelected, setItemSelected] = useState(null);// distingue al producto seleccionado para eleminiarlo.
+
 
   const handleCounterAdd = ()=> setCounter(counter + 1)
+
   const handleImputChange = (value) => setimputValue(value)
-  
+
+  const handleModal = (id) => {
+    setModalVisible(true);
+    setItemSelected(id);
+  };
+
+
+  const addItem = ()=> {
+    const newItem = {
+      name: imputValue,
+      id: new Date().getTime(),
+    }
+    setCartItems([...cartItems, newItem])
+  }
+
   return (
     <View style={styles.page}> 
+      <StatusBar />
       <View style={styles.carrito}>
         <Text>CARRITO</Text>
         <Image style={styles.imgCarrito} source={{uri: 'https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png'}}/>
       </View>
+
 
       <View style={styles.container}>
         <TextInput 
@@ -48,17 +48,20 @@ export default function App() {
           style={styles.textImput} 
           placeholder='ingrese un producto' 
         />
-        <Pressable>
+        <Pressable onPress={addItem}>
           <Text style={styles.pressable}> + </Text>
-       </Pressable>
+        </Pressable>
       </View>      
 
       <View style={styles.productList}>
         <FlatList
-          data={DATA}
+          data={cartItems}
           renderItem={({ item })=> (
-            <View>
+            <View style={{flexDirection: 'row', gap: 10}}>
               <Text style={styles.product}>{item.name}</Text>
+              <Pressable onPress={()=> handleModal(item.id)}>
+                <Text style={{fontSize: 20}}> 🗑️ </Text>
+              </Pressable>
             </View>
           )}
           keyExtractor={(item) => item.id}
@@ -69,15 +72,17 @@ export default function App() {
         <Text style={styles.counter}>{counter}</Text>
         <Text>valor del imput: {imputValue}</Text>
       </Pressable>
-
+      
+      <RemoveModal
+        modalVisible={modalVisible}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        setModalVisible={setModalVisible}
+        itemSelected={itemSelected}
+      />
     </View>
   );
 }
-{/* {DATA.map((item)=> (
-  <View key={item.id}>
-    <Text style={styles.product}>{item.name}</Text>
-  </View>
-))} */}
 
 const styles = StyleSheet.create({
   page: {
@@ -89,6 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: "15%",
+  //paddingTop: Constants.statusBarHeight;
     gap: 5,
   },
   imgCarrito: {
