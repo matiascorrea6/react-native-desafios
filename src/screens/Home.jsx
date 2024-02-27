@@ -4,12 +4,11 @@ import Header from '../components/Header'
 import Categories from '../components/Categories'
 import { colors } from '../global/colors'
 
-function Home() {
+function Home({setCategorySelected}) {
     return (
         <View style={styles.view}>
             <Header title={'Header'}/>
-            <Text style={styles.text}>clases</Text>
-            <Categories />
+            <Categories setCategorySelected={setCategorySelected}/>
         </View>
     );
 }

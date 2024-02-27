@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Card from './Card';
 import { colors } from '../global/colors';
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, setCategorySelected }) => {
   return (
     <>
-    <Card style={styles.card}>
-      <Text style={styles.text}> {category} </Text>
+    <Card>
+      <Pressable style={styles.card} onPress={()=> setCategorySelected(category)}>
+        <Text style={styles.text}> {category} </Text>
+      </Pressable>
     </Card>
     </>
   );
@@ -26,5 +28,6 @@ const styles = StyleSheet.create({
     color: colors.grey1,
     width: '80%',
     borderRadius: 10,
+    fontFamily: 'notosans_reg'
   },
 })
