@@ -1,9 +1,10 @@
 import { View, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import { useFonts } from 'expo-font';
+import { fonts } from './src/global/fonts';
 import Home from './src/screens/Home';
 import ItemListCategories from './src/screens/ItemListCategories';
-import { fonts } from './src/global/fonts';
+import Clases from './src/clases/Clases';
 
 export default function App() {
 
@@ -17,14 +18,18 @@ export default function App() {
 
   return (
     <View style={styles.page}> 
-      {categorySelected ? (<ItemListCategories />) : (<Home setCategorySelected={setCategorySelected}/>)}
+      {categorySelected ? (
+        <ItemListCategories setCategorySelected={setCategorySelected} category={categorySelected}/>
+      ) : (
+        <Home setCategorySelected={setCategorySelected}/>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
- page: {
-  flex: 1,
-  backgroundColor: "black",
+  page: {
+    flex: 1,
+    backgroundColor: "black",
  }
 })

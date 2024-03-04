@@ -16,8 +16,11 @@ export default ProductItem;
 
 const styles = StyleSheet.create({
     text: {
-      marginVertical: 5,
-      fontSize: 25,
+      fontSize: 20,
+      marginVertical: 3,
+      marginHorizontal: 5,
+      borderRadius: 5,
       color: colors.grey1,
+      backgroundColor: colors.blue3,
     },
 })

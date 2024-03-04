@@ -7,8 +7,12 @@ import { colors } from '../global/colors'
 function Home({setCategorySelected}) {
     return (
         <View style={styles.view}>
-            <Header title={'Header'}/>
-            <Categories setCategorySelected={setCategorySelected}/>
+            <View style={styles.header}>
+                <Header title={'Mi tienda'}/>
+            </View>
+            <View style={styles.categories}>
+                <Categories setCategorySelected={setCategorySelected}/>
+            </View>
         </View>
     );
 }
@@ -17,11 +21,13 @@ export default Home;
 
 const styles = StyleSheet.create({
     view: {
-        fontSize: 30,
+        flex: 1,
+        marginTop: 20,
     },
-    text: {
-        backgroundColor: colors.blue2,
-        fontSize: 30,
-        color: colors.grey1,
+    header: {
+        alignItems: 'center'
+    },
+    categories: {
+        width: "100%"
     },
 })

@@ -2,15 +2,16 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import categories from '../data/categories.json';
 import CategoryItem from './CategoryItem';
 
-const Categories = ({setCategorySelected}) => {
+const Categories = ({ setCategorySelected }) => {
   return (
-    <View>
+    <View style={styles.view}>
      <FlatList 
         data={categories}
         renderItem={({ item })=> 
           <CategoryItem setCategorySelected={setCategorySelected} category={item} />
         }
-        keyExtractor={(category) => category}        
+        keyExtractor={(category) => category}      
+        style={styles.flatlist}  
         />
     </View>
   )
@@ -19,25 +20,14 @@ const Categories = ({setCategorySelected}) => {
 export default Categories
 
 const styles = StyleSheet.create({
-    text: {
-        fontSize: 30,
-        justifyContent: 'center',
-    },
-})
-
-/*
-<View style={styles.productList}>
-  <FlatList
-    data={cartItems}
-    renderItem={({ item })=> (
-      <View style={{flexDirection: 'row', gap: 10}}>
-        <Text style={styles.product}>{item.name}</Text>
-        <Pressable onPress={()=> handleModal(item.id)}>
-          <Text style={{fontSize: 20}}> 🗑️ </Text>
-        </Pressable>
-      </View>
-    )}
-    keyExtractor={(item) => item.id}
-  />
-</View>
-*/
+  view: {
+    alignItems: 'center',
+    width: "full"
+  },
+  flatlist: {
+    width: "90%",
+    marginTop: 15,
+    paddingHorizontal: 15,
+    gap: 10
+  }
+  })

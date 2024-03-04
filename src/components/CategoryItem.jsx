@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Card from './Card';
 import { colors } from '../global/colors';
 
@@ -6,9 +6,10 @@ const CategoryItem = ({ category, setCategorySelected }) => {
   return (
     <>
     <Card>
-      <Pressable style={styles.card} onPress={()=> setCategorySelected(category)}>
+      <Pressable style={styles.pressable} onPress={()=> setCategorySelected(category)}>
         <Text style={styles.text}> {category} </Text>
       </Pressable>
+      {/* <Image source={{ uri: category.Image[0]}}/> */}
     </Card>
     </>
   );
@@ -17,17 +18,14 @@ const CategoryItem = ({ category, setCategorySelected }) => {
 export default CategoryItem
 
 const styles = StyleSheet.create({
-  card: {
-    alignItems: 'center',
-    paddingTop: 20,
+  pressable: {
+    marginVertical: 5,
   },
   text: {
-    fontSize: 30,
+    fontSize: 25,
+    borderRadius: 7,
     backgroundColor: colors.blue3,
-    textAlign: 'center',
     color: colors.grey1,
-    width: '80%',
-    borderRadius: 10,
-    fontFamily: 'notosans_reg'
+    fontFamily: 'notosans_reg',
   },
 })

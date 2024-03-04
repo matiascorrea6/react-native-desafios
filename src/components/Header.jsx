@@ -13,10 +13,12 @@ function Header({ title }) {
   
   const styles = StyleSheet.create({
       container: {
-          width: 'full',
+          width: '65%',
           backgroundColor: colors.blue1,
-          paddingVertical: 20,
-          marginTop: 40,
+          paddingVertical: 15,
+          marginTop: 20,
+          // marginLeft: '17.5%',
+          borderRadius: 20,
         },
       text: {
         fontSize: 30,
