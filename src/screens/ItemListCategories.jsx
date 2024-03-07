@@ -10,7 +10,6 @@ function ItemListCategories({category, setCategorySelected}) {
   const [products, setProducts] = useState([]);
   const [keyword, setKeyword] = useState("");
 
-
   useEffect(()=> {
     if(category) {
       const products = allProducts.filter((product)=> product.category === category);
@@ -24,18 +23,22 @@ function ItemListCategories({category, setCategorySelected}) {
 
   return (
     <View style={styles.container}>
-      <Pressable style={styles.pressable} onPress={()=> setCategorySelected('')}>
-        <Text style={styles.home}>Home</Text>
-      </Pressable>
+      <View style={styles.header}>
+        <Pressable style={styles.pressable} onPress={()=> setCategorySelected('')}>
+          <Text style={styles.home}>Home</Text>
+        </Pressable>
+      </View>
       <View style={styles.search}>
         <Search keyword={keyword} onSearch={setKeyword}/> 
       </View>
-      <FlatList 
-        data={products}
-        keyExtractor={(item) => item.id}
-        style={styles.flatlist}
-        renderItem={({item}) => <ProductItem product={item} />}
-        />
+      <View style={styles.lista}>
+        <FlatList 
+          data={products}
+          keyExtractor={(item) => item.id}
+          style={styles.flatlist}
+          renderItem={({item}) => <ProductItem product={item} />}
+          />
+      </View>
     </View>
   );
 };
@@ -46,11 +49,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 60,
-    alignItems: "center",
-    backgroundColor: colors.grey1
+    backgroundColor: colors.blue2
   }, 
+  header: {
+    width: '100%',
+  },
   pressable: {
-    width: '65%',
+    alignSelf: "center",
+    width: '55%',
   },
   home: {
     fontSize: 30,    
@@ -60,12 +66,20 @@ const styles = StyleSheet.create({
     color: 'white',    
     backgroundColor: colors.blue1,
   },
-  flatlist: {
-    width: '90%',
+  lista: {
+    width: '100%',
     marginTop: 10,
-    paddingHorizontal: 5,
   },
+  flatlist: {
+    width: '80%',
+    backgroundColor: colors.blue1,
+    paddingHorizontal: 5,
+    paddingVertical: 5,
+    alignSelf: 'center',
+    borderRadius: 3
+    },
   search: {
     width: '100%',
+    alignItems: 'center',
   }
 })

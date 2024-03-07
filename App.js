@@ -5,6 +5,7 @@ import { fonts } from './src/global/fonts';
 import Home from './src/screens/Home';
 import ItemListCategories from './src/screens/ItemListCategories';
 import Clases from './src/clases/Clases';
+import { colors } from './src/global/colors';
 
 export default function App() {
 
@@ -30,6 +31,6 @@ export default function App() {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: colors.grey2,
  }
 })

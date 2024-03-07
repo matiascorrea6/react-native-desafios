@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { colors } from '../global/colors';
 
 const Search = ({ onSearch }) => {    
 
@@ -26,10 +27,10 @@ const Search = ({ onSearch }) => {
         onChangeText={setImput}
       />
       <Pressable onPress={handlesearch} style={styles.pressable}>
-        <AntDesign name="search1" size={25} color="black"/>
+        <AntDesign name="search1" size={25} color="white"/>
       </Pressable>
       <Pressable onPress={cleanImput} style={styles.pressable}>
-        <Entypo name="circle-with-cross" size={25} color="black"/>
+        <Entypo name="circle-with-cross" size={25} color="white"/>
       </Pressable>
     </View>
   )
@@ -39,19 +40,21 @@ export default Search
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginVertical: 10,
-        gap: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      width: '95%',
+      margin: 10,
+      paddingHorizontal: 20,
+      justifyContent: 'center',
     },
     textImput: {
       padding: 8,
-        width: "75%",
-        fontSize: 15,
-        borderColor: 'grey', 
-        borderWidth: 1,
-        borderRadius: 8, 
+      width: "90%",
+      fontSize: 15,
+      borderWidth: 2,
+      borderRadius: 8, 
+      borderColor: colors.grey2, 
+      backgroundColor: 'white'
     },
     pressable: {
       marginHorizontal: 5

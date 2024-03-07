@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     categories: {
-        width: "100%"
+        marginTop: 30,
+        // width: "auto"
     },
 })

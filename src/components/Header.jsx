@@ -17,12 +17,11 @@ function Header({ title }) {
           backgroundColor: colors.blue1,
           paddingVertical: 15,
           marginTop: 20,
-          // marginLeft: '17.5%',
           borderRadius: 20,
         },
       text: {
         fontSize: 30,
-        color: colors.grey1,
+        color: colors.grey2,
         fontWeight: 'bold',
         textAlign: 'center',
       },
