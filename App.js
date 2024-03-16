@@ -9,11 +9,11 @@ import { colors } from './src/global/colors';
 
 export default function App() {
 
-  const [categorySelected, setCategorySelected] = useState('');
+  const [categorySelected, setCategorySelected] = useState("");
 
   const [fontsLoaded] = useFonts(fonts);
 
-  if(!fontsLoaded) {
+  if(!fontsLoaded) { //Carga las fonts
     return null
   };
 
@@ -31,6 +31,6 @@ export default function App() {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: colors.grey2,
+    backgroundColor: colors.grey1,
  }
 })

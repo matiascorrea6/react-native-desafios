@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 60,
-    backgroundColor: colors.blue2
+    // backgroundColor: colors.blue2
   }, 
   header: {
     width: '100%',
@@ -66,13 +66,14 @@ const styles = StyleSheet.create({
     color: 'white',    
     backgroundColor: colors.blue1,
   },
-  lista: {
+  lista: { 
+    //Espacio que ocupa el componente que contiene la lista
     width: '100%',
     marginTop: 10,
   },
-  flatlist: {
-    width: '80%',
-    backgroundColor: colors.blue1,
+  flatlist: { 
+    //Espacio que ocupa la lista
+    width: '100%',
     paddingHorizontal: 5,
     paddingVertical: 5,
     alignSelf: 'center',

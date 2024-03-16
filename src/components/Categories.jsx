@@ -22,7 +22,7 @@ export default Categories
 
 const styles = StyleSheet.create({
   view: {
-    height: '80%',
+    height: '60%',
   },
   flatlist: {
     width: "60%",
