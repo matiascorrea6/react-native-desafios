@@ -1,11 +1,13 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import categories from '../data/categories.json';
 import CategoryItem from './CategoryItem';
 import { colors } from '../global/colors';
 
 const Categories = ({ setCategorySelected }) => {
+  const { width, height } = useWindowDimensions();
+
   return (
-    <View style={styles.view}>
+    <View style={width < 500 ? styles.view : styles.viewpc}>
       <FlatList 
         data={categories}
         renderItem={({ item })=> 
@@ -22,14 +24,19 @@ export default Categories
 
 const styles = StyleSheet.create({
   view: {
-    height: '60%',
+    width: "80%",
+    height: '90%',
+  },
+  viewpc: {
+    width: "60%",
+    height: '65%',
   },
   flatlist: {
-    width: "60%",
+    width: "full",
     marginTop: 5,
     paddingVertical: 5,
     marginLeft: 10,
     borderRadius: 5,
-    backgroundColor: colors.blue1
+    // backgroundColor: colors.blue1
   }
   })

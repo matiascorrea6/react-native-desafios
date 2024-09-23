@@ -19,14 +19,14 @@ export default CategoryItem
 
 const styles = StyleSheet.create({
   pressable: {
-    width: '90%',
-    marginVertical: 5,
+    width: 'full',
+    marginVertical: 8,
     marginHorizontal: 10
   },
   text: {
     fontSize: 25,
     borderRadius: 7,
-    backgroundColor: colors.blue2,
+    backgroundColor: colors.blue1,
     color: colors.grey2,
     fontFamily: 'notosans_reg',
   },

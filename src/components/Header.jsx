@@ -17,10 +17,11 @@ function Header({ title }) {
           paddingVertical: 15,
           marginTop: 20,
           borderRadius: 20,
+          // backgroundColor: colors.
         },
       text: {
         fontSize: 35,
-        color: colors.blue1,
+        color: colors.grey2,
         fontWeight: 'bold',
         textAlign: 'center',
       },

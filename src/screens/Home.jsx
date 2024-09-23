@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Header from '../components/Header'
 import Categories from '../components/Categories'
@@ -8,7 +8,7 @@ function Home({setCategorySelected}) {
     return (
         <View style={styles.view}>
             <View style={styles.header}>
-                <Header title={'Mi tienda'}/>
+                <Header title={'Categories'}/>
             </View>
             <View style={styles.categories}>
                 <Categories setCategorySelected={setCategorySelected}/>
@@ -22,13 +22,14 @@ export default Home;
 const styles = StyleSheet.create({
     view: {
         flex: 1,
-        marginTop: 20,
+        marginTop: Platform.OS === 'android' ? 30 : 0,
     },
     header: {
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: colors.blue2
     },
     categories: {
         marginTop: 30,
-        // width: "auto"
+        alignItems: "center"
     },
 })

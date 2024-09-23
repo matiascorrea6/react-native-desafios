@@ -5,7 +5,7 @@ import allProducts from '../data/products.json';
 import ProductItem from '../components/ProductItem';
 import Search from '../components/Search';
 
-function ItemListCategories({category, setCategorySelected}) {
+function ItemListCategories({category, setCategorySelected, setProductId}) {
   
   const [products, setProducts] = useState([]);
   const [keyword, setKeyword] = useState("");
@@ -36,7 +36,7 @@ function ItemListCategories({category, setCategorySelected}) {
           data={products}
           keyExtractor={(item) => item.id}
           style={styles.flatlist}
-          renderItem={({item}) => <ProductItem product={item} />}
+          renderItem={({item}) => <ProductItem product={item} setProductId={setProductId} />}
           />
       </View>
     </View>

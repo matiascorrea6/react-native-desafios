@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import Card from './Card';
 import { colors } from '../global/colors';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, setProductId }) => {
   return (
     <View style={styles.view}>
-        <Card style={styles.style}>
-          <Text style={styles.text}> {product.title} </Text>
-          <Image style={styles.img} source={{ uri: product.images[0] }}/>
-        </Card>
+        <Pressable onPress={()=> setProductId(product.id)}>
+          <Card style={styles.style}>
+            <Text style={styles.text}> {product.title} </Text>
+            <Image style={styles.img} source={{ uri: `https://cors-anywhere.herokuapp.com/${product.images}` }}/>
+          </Card>
+        </Pressable>
     </View>
   );
 };
